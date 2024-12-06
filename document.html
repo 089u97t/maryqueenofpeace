@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mary.css">
+  <title>mary</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Auto-writing Logo */
+    
+    /* Nav items */
+    ul {
+      list-style: none;
+      display: flex;
+    }
+
+    ul li {
+      margin: 0px;
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    ul li a:hover {
+      color: #00ffcc;
+    }
+
+    /* Scroll sections */
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      transition: transform 1s, opacity 1s;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    /* Color schemes for each section */
+    section:nth-child(odd) {
+      background: #1f1f1f;
+    }
+
+    section:nth-child(even) {
+      background: #151515;
+    }
+
+    section h1 {
+      font-size: 4em;
+      margin-bottom: 20px;
+      color: #00ffcc;
+    }
+
+    section p {
+      font-size: 1.5em;
+      max-width: 600px;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    /* Scroll reveal animation */
+    .reveal {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.9);
+        top: 70px;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        justify-content: center;
+        transition: right 0.3s ease;
+      }
+
+      nav ul.active {
+        right: 0;
+      }
+
+      nav ul li {
+        margin: 20px 0;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      section h1 {
+        font-size: 3em;
+      }
+
+      section p {
+        font-size: 1.2em;
+      }
+    }
+
+    
+.navbar {
+  background-color: #18356a;
+  color: #090707;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav-list {
+  background-color: #18356a;
+  color: #090707;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.logo{
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInRightBig {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(-2000px, 0, 0);
+  transform: translate3d(-2000px, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInRightBig {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(-2000px, 0, 0);
+  transform: translate3d(-2000px, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  } 
+.logo a {
+  padding-left: 90px;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.nav-links {
+  list-style: none;
+  padding: -1;
+  margin: -1;
+  display: flex;
+  cursor: pointer;
+}
+
+.nav-links li {
+  margin-right: 1vw;
+}
+
+.nav-links li a {
+  color: #0f0d0d;
+  text-decoration: black;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px;
+}
+
+
+svg {
+	font-family: "Russo One", sans-serif;
+	width: 100%; height: 100%;
+}
+svg text {
+	animation: stroke 5s infinite alternate;
+	stroke-width: 2;
+	stroke: #010812;
+	font-size: 100px;
+}
+@keyframes stroke {
+	0%   {
+		fill: rgba(4, 7, 11, 0.998); stroke: rgb(9, 9, 9);
+		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+	}
+	70%  {fill: rgba(3, 7, 10, 0.908); stroke: rgb(3, 3, 3); }
+	80%  {fill: rgb(3, 4, 6); stroke: rgb(5, 6, 5); stroke-width: 3; }
+	100% {
+		fill: rgb(9, 9, 10); stroke: rgb(8, 9, 10);
+		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+	}
+}
+
+.wrapper {background-color: #FFFFFF};
+
+    p {
+      color: red;
+    }
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: #18356a;
+      padding: 20px 0;
+      text-align: center;
+      transition: 0.3s ease-in-out;
+  }
+  
+
+  .nav-links.show {
+      display: flex;
+  }
+
+  .nav-links li {
+      margin: 10px 0;
+  }
+
+  .hamburger {
+      display: flex;
+  }
+  .navbar{
+    position: fixed;
+    
+  }
+} 
+a{
+  text-decoration: none;
+  color: #000;
+}
+.graphic img {
+  max-width: 30vw;
+ 
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+        <div class="logo1">
+          
+            <a href="#"> <img src=".vscode\image\letter-b (1).png" alt="png"></a>
+        </div>
+       
+        <ul class="nav-links">
+              
+              <!-- <input type="text" placeholder="search" name="text" class="input">
+              <svg></svg> -->
+              
+             
+                  <li><a href="music.html">music</a></li>
+                  <li><a href="document.html">document</a></li>
+                  <li><a href="scripts.html">scripts</a></li>
+                  <li><a href="event.html">Event</a></li>
+                  <li><a href="image.html">Images</a></li>
+                  <li><a href="liturgy.html">liturgy</a></li>
+                  <li><a href="support.html">support</a></li>
+                  <li><a href="video.html">video </video></a></li>
+                  
+        </ul>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+    <div id="home" style="margin-left: 5vw;">
+        <div class="hero-content">
+            <div class="text">
+                <h1>Welcome To </h1>
+                <h1 class="wrapper" style="color: #000;">
+                  <svg>
+                    <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                     MARY <br> QUEEN OF PEACE
+                    </text>
+                  </svg>
+                </h1>
+                <h1><B>CHOIR</B></h1>
+                <p>A <span>CREATIVE </span> society<br> passionate in singing for the lord.</p>
+                <p>Let's come togeether and sing unto the LORD!</p>
+                <a href="login.html" class="animated-button">Sign-up/Sign-in</a>
+            </div>
+            <div class="graphic">
+               <!-- Eye-catching graphics can be placed here -->
+                <img src="4497.jpg" alt="Graphic">
+            </div>
+        </div>
+    </div>
+</header>
+
+
+  <!-- Navbar -->
+  <!-- <nav>
+    <div class="logo">IGBOAYAKA</div>
+    <ul id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Testimonials</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">FAQs</a></li>
+    </ul>
+    <div class="hamburger" >
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </nav> -->
+
+  <!-- Sections with Scroll Reveal -->
+  <section id="section1">
+    <h1>Welcome to MARY QUEEN OF PEACE</h1>
+
+    <p>Explore cutting-edge solutions that define the next generation of innovation.</p>
+  </section>
+
+  <section id="section2">
+    <h1>About Us</h1>
+    <p>We are dedicated to transforming the future with groundbreaking technology and creativity.</p>
+  </section>
+
+  <section id="section3">
+    <h1>Our Services</h1>
+    <p>From AI to Web Development, we provide services that pave the way for the future.</p>
+  </section>
+
+  <section id="section4">
+    <h1>Our Projects</h1>
+    <p>Discover the revolutionary projects that are reshaping industries.</p>
+  </section>
+
+  <section id="section5">
+    <h1>Contact Us</h1>
+    <p>Let's collaborate to turn your vision into reality. Reach out to us anytime.</p>
+  </section>
+
+  
+  <section class="footer">
+    <div class="container48">
+        <div class="footer-content">
+            <div class="info">
+                <h2>INFORMATION</h2>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                    <li>Contact:<a href="tel:+234 804 524 8175">+234 804 524 8175</a><p>Contact:  <a href="tel:+905 338 508 888">+999 338 508 988</a></p> 
+                      <p>Contact: <a href="mailto:elazzyentertainment">maryqueenofpeace@gmail.com</a></p></li>
+                </ul>
+            </div>
+            <div class="navigation">
+                <h2>Navigation</h2>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                <h2>Connect</h2>
+                <ul>
+                    <li><a href="https://www.facebook.com">Facebook</a></li>
+                    <li><a href="https://www.twitter.com">Twitter</a></li>
+                    <li><a href="https://www.linkedin.com/in/maryanthony-tochukwu-a447">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="shop">
+                <h2>SERVICES</h2>
+                <a href="#portfolio" class="animated-button">Services</a>
+            </div>
+        </div>
+        <p>&copy; copyright  <svg>
+          <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+           MARY 
+          </text>
+        </svg></p>
+    </div>
+</section>
+<script src="mary.js">const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+navLinks.classList.toggle('show');
+});</script>
+  <!-- JavaScript for Scroll Reveal and Auto-Write Effect -->
+  <script>
+    // Scroll reveal logic
+    window.addEventListener('scroll', revealSections);
+
+    function revealSections() {
+      const sections = document.querySelectorAll('section');
+      const revealPoint = window.innerHeight / 1.3;
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop < revealPoint) {
+          section.classList.add('reveal');
+        }
+      });
+    }
+
+  </script>
+</body>
+</html>
